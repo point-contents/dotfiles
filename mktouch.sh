@@ -1,9 +1,10 @@
-#!bin/bash
+#!/usr/bin/bash
 #this will make a file in a directory that
 #doesnt yet exist
 
-mktouch () {
-	mkdir -p $(dirname $1) && touch $1
+mktouch() {
+	mkdir -p "$(dirname "$1")" && touch "$1";
+	echo $(dirname $1)
 }
 
 ## For example
