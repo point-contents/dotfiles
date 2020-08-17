@@ -2,7 +2,7 @@
 # Quick function/alias to make a templated pandoc latex file
 # and hopefully catch any errors in compiling
 # just call pandy and the name of the markdown file 
-
+# needs the eisvogel template in your ~/.pandoc/templates directory
 
 pandy () {
 	pdffile=${1%.md}.pdf
