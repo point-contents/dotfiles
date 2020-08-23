@@ -24,6 +24,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
-Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
+
+let g:coc_disable_startup_warning = 1
