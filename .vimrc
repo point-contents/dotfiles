@@ -29,4 +29,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+map<C-n> :NERDTreeToggle<CR>
+
 let g:coc_disable_startup_warning = 1
