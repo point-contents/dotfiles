@@ -20,4 +20,5 @@ for a in *.sh ; do
 	egrep -v "^#!" $a >> ~/.bashrc ; done 
 
 ## Need to do a " . ~/.bashrc " or "source ~/.bashrc" after
+## or just restart the terminal
 
