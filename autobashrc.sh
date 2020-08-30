@@ -11,7 +11,7 @@ cat /etc/bash.bashrc > ~/.bashrc
 #otherwise, grep for all lines that do not start with the 
 #bash shebang.
 
-##redirect all of those files to the bashrc in the users home
+##redirect all of those lines to the bashrc in the users home
 ##directory
 
 for a in *.sh ; do 
