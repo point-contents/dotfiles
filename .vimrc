@@ -1,5 +1,7 @@
 syntax on
 
+set noic
+set relativenumber
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -14,7 +16,7 @@ set undofile
 set incsearch
 
 set colorcolumn=80
-highligh ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
@@ -25,10 +27,15 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
+Plug 'vimlab/split-term.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'stevearc/vim-arduino'
 
 call plug#end()
 
 map<C-n> :NERDTreeToggle<CR>
-
-let g:coc_disable_startup_warning = 1
+autocmd vimenter * colorscheme gruvbox
+let g:airline_theme='agnoster'

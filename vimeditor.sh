@@ -3,6 +3,9 @@
 #Export these as environment variables.
 #Needs to be added to the bashrc for it to be persistent
 
-export EDITOR=vim
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
+##Add some aliases to complete the transition to neovim
+alias vim="nvim"
+alias vi="nvim"
