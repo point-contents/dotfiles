@@ -23,7 +23,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
-Plug 'leafgarland/typescript-vim'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'

@@ -17,6 +17,7 @@ cat /etc/bash.bashrc > ~/.bashrc
 for a in *.sh ; do 
 	test "$a" = autobashrc.sh && continue
 	test "$a" = makenew.sh && continue	
+	test "$a" = README.md && continue	
 	egrep -v "^#!" $a >> ~/.bashrc ; done 
 
 ## Need to do a " . ~/.bashrc " or "source ~/.bashrc" after
