@@ -14,11 +14,12 @@ cat /etc/bash.bashrc > ~/.bashrc
 ##redirect all of those lines to the bashrc in the users home
 ##directory
 
-for a in *.sh ; do 
+for a in $(find include/ -iname "*.sh") ; do 
 	test "$a" = autobashrc.sh && continue
 	test "$a" = makenew.sh && continue	
 	test "$a" = README.md && continue	
-	egrep -v "^#!" $a >> ~/.bashrc ; done 
+	echo "\t --- \t ---" >> testBashRC
+	egrep -v "^#!" $a >> ~/testBashRC ; done 
 
 ## Need to do a " . ~/.bashrc " or "source ~/.bashrc" after
 ## or just restart the terminal

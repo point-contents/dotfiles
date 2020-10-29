@@ -1,3 +1,8 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			pandy()			       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #!/usr/bin/bash
 # Quick function/alias to make a templated pandoc latex file
 # and hopefully catch any errors in compiling
@@ -21,5 +26,6 @@ pandy () {
 	rm failure
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

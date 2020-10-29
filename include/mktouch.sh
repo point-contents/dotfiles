@@ -1,3 +1,8 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			mktouch()		       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #!/usr/bin/bash
 
 #this will make a file in a directory that
@@ -14,4 +19,5 @@ mktouch() {
 ## doesnt already exist.
 ## and put a new file in that folder called stream io
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
