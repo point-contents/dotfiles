@@ -15,10 +15,8 @@
 ##redirect all of those lines to the bashrc in the users home
 ##directory
 
-touch testBashRC
-
 for a in $(find include/ -iname "*.sh") ; do 
-	egrep -v "^#!" $a >>  testBashRC ; done ##~/.bashrc ; done 
+	egrep -v "^#!" $a >>  .bashrc ; done ##~/.bashrc ; done 
 
 ## Need to do a " . ~/.bashrc " or "source ~/.bashrc" after
 ## or just restart the terminal
