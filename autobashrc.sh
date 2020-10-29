@@ -3,23 +3,20 @@
 ## Works on Debian to get the default bashrc, 
 ##will start the bashrc totally from scratch
 
-cat /etc/bash.bashrc > ~/.bashrc
+##Uncomment this to start from the start
 
-#Explain (to myself mostly)
-#Do a for loop of all of the bashfiles in the folder
-#If the files are called "autobashrc or makenew" do nothing
-#otherwise, grep for all lines that do not start with the 
-#bash shebang.
+# cat /etc/bash.bashrc > ~/.bashrc
+
+# Explain (to myself mostly)
+# Do a for loop of all of the bashfiles in the folder
+# grep for all lines that do not start with the 
+# bash shebang.
 
 ##redirect all of those lines to the bashrc in the users home
 ##directory
 
 for a in $(find include/ -iname "*.sh") ; do 
-	test "$a" = autobashrc.sh && continue
-	test "$a" = makenew.sh && continue	
-	test "$a" = README.md && continue	
-	echo "\t --- \t ---" >> testBashRC
-	egrep -v "^#!" $a >> ~/testBashRC ; done 
+	egrep -v "^#!" $a >>  .bashrc ; done ##~/.bashrc ; done 
 
 ## Need to do a " . ~/.bashrc " or "source ~/.bashrc" after
 ## or just restart the terminal
