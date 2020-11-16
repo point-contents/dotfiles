@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-## Works on Debian to get the default bashrc, 
+## Used on Debian Buster to get the default bashrc, 
 ##will start the bashrc totally from scratch
 
 ##Uncomment this to start from the start
