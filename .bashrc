@@ -166,3 +166,117 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			clearmake()		       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+#This will clean up all the filth after
+#cmake fails, like it does with me 99% of the time
+
+clearmake(){
+	rm CMakeCache.txt
+	rm -rf CmakeFiles
+	rm cmake_install.cmake
+	rm Makefile
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			tinyPrompt()		       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+#add this to make the prompt tiny, good for 
+#directories with tons of files
+
+#prompt will just be the username
+export PS1='\u > '
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			Vimmy()		       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+#Export these as environment variables.
+#Needs to be added to the bashrc for it to be persistent
+
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+
+##Add some aliases to complete the transition to neovim
+alias vim="nvim"
+alias vi="nvim"
+
+## Make the terminal work like vim 
+
+set -o vi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			mktouch()		       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+#this will make a file in a directory that
+#doesnt yet exist
+
+mktouch() {
+	mkdir -p "$(dirname "$1")" && touch "$1";
+	echo $(dirname $1)
+}
+
+## For example
+## mktouch /Documents/code/streamio.h
+## would make a new folder called "code" assuming it 
+## doesnt already exist.
+## and put a new file in that folder called stream io
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			startNew()		       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+## Works on debian, will start the bashrc totally from scratch
+
+cat /etc/bash.bashrc > ~/.bashrc
+. ~/.bashrc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			pandy()			       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# Quick function/alias to make a templated pandoc latex file
+# and hopefully catch any errors in compiling
+# just call pandy and the name of the markdown file 
+# needs the eisvogel template in your ~/.pandoc/templates directory
+
+pandy () {
+	pdffile=${1%.md}.pdf
+	echo "Now turning $1 into a beautiful pdf"
+	pandoc -f markdown -t latex "$1" -o $pdffile --template=eisvogel 2>failure
+	result=$?
+	if [ $result -eq 0 ]; then
+		echo "The file is called $pdffile"
+	else
+		echo -e "That was unfortunately a failure, further information below \n"
+		echo -e "$(cat failure)" "\n"
+		echo -e "Call pandoc fully to look at the latex log \n"
+
+	fi
+	rm failure
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

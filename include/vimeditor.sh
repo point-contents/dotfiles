@@ -1,3 +1,8 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			Vimmy			%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #!/bin/bash
 
 #Export these as environment variables.
@@ -9,3 +14,10 @@ export VISUAL="$EDITOR"
 ##Add some aliases to complete the transition to neovim
 alias vim="nvim"
 alias vi="nvim"
+
+## Make the terminal work like vim 
+
+set -o vi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

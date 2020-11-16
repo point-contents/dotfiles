@@ -196,11 +196,9 @@ set -o vi
 
 alias dirt="cd ~/Documents/nixnonsense/loader/"
 
-export PATH=$PATH:/home/me/totara/totara-docker-dev/bin
+export PATH=$PATH
 export PAGER="most"
 
-alias torts='cd ~/totara/contribution/'
-alias tort='cd ~/totara/contribution/course/format/'
 alias vim='nvim'
 alias vi='nvim'
 #

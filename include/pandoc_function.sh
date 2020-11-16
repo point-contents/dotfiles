@@ -1,3 +1,8 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			pandy			%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #!/usr/bin/bash
 # Quick function/alias to make a templated pandoc latex file
 # and hopefully catch any errors in compiling
@@ -14,12 +19,12 @@ pandy () {
 	else
 		echo -e "That was unfortunately a failure, further information below \n"
 		echo -e "$(cat failure)" "\n"
-		echo -e "If the error message does not provide enough information"
-		echo -e "then you should call pandoc fully to look at the latex log \n"
+		echo -e "Call pandoc fully to look at the latex log \n"
 
 	fi
 	rm failure
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
