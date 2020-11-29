@@ -38,3 +38,7 @@ call plug#end()
 map<C-n> :NERDTreeToggle<CR>
 autocmd vimenter * colorscheme gruvbox
 let g:airline_theme='agnoster'
+
+" copy and paste with normal ctrl c & ctrl b
+vmap <C-c> "+y
+nmap <C-b> "+p
