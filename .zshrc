@@ -15,7 +15,7 @@ export ZSH="/home/me/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=rkj
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -24,7 +24,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-#CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -52,6 +52,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -75,27 +77,25 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	git-prompt
+plugins=(git
 	zsh-autosuggestions
-)
+	)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
+set -o vi
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -106,118 +106,40 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#
-#This will clean up all the filth after
-#cmake fails, like it does with me 99% of the time
+alias vi="nvim"
+alias vim="nvim"
+alias darke="gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
+alias lighte="gsettings set org.gnome.desktop.interface gtk-theme Adwaita-light"
+alias sip="cp ~/cpp_template_directory/main.cpp ."
+alias dirt="cd ~/Documents/.vid"
+alias files="nautilus"
+alias kitty="random_kitty ; nohup kitty --start-as=\"fullscreen\" > /dev/null &"
 
-prompt_context() {}
-PS1=$(echo $PS1 | sed 's/(base)//')
-
-clearmake(){
-	rm CMakeCache.txt
-	rm -rf CmakeFiles
-	rm cmake_install.cmake
-	rm Makefile
-}
-
-
-
-#this will make a file in a directory that
-#doesnt yet exist
-
-mktouch() {
-	mkdir -p "$(dirname "$1")" && touch "$1";
-	echo $(dirname $1)
-}
-
-## For example
-## mktouch /Documents/code/streamio.h
-## would make a new folder called "code" assuming it 
-## doesnt already exist.
-## and put a new file in that folder called stream io
-
-
-# function/alias to make a templated pandoc latex file
-# and hopefully catch any errors in compiling
-# just call pandy and the name of the markdown file 
-# needs the eisvogel template in your ~/.pandoc/templates directory
-
-pandy () {
-	pdffile=${1%.md}.pdf
-	echo "Now turning $1 into a beautiful pdf"
-	pandoc -f markdown -t latex "$1" -o $pdffile --template=eisvogel --pdf-engine=xelatex 2>failure
-	result=$?
-	if [ $result -eq 0 ]; then
-		echo "The file is called $pdffile"
-	else
-		echo -e "That was unfortunately a failure, further information below \n"
-		echo -e "$(cat failure)" "\n"
-		echo -e "If the error message does not provide enough information"
-		echo -e "then you should call pandoc fully to look at the latex log \n"
-
-	fi
-	rm failure
-}
-
-insta () {
-    instaloader profile $1 --no-captions --no-metadata-json
-}
-
-pando () {
-	pdffile=${1%.md}.pdf
-	echo "Now turning $1 into a beautiful pdf"
-	pandoc -f markdown -t latex "$1" -o $pdffile  2>failure
-	result=$?
-	if [ $result -eq 0 ]; then
-		echo "The file is called $pdffile"
-	else
-		echo -e "That was unfortunately a failure, further information below \n"
-		echo -e "$(cat failure)" "\n"
-		echo -e "If the error message does not provide enough information"
-		echo -e "then you should call pandoc fully to look at the latex log \n"
-
-	fi
-	rm failure
-}
-
-#Export these as environment variables.
-#Needs to be added to the bashrc for it to be persistent
-
-export EDITOR="nvim"
-export VISUAL="$EDITOR"
-
-#
-## Make the terminal work like vim
-
-set -o vi
-
-alias dirt="cd ~/Documents/nixnonsense/loader/"
-
-export PATH=$PATH
-export PAGER="most"
-
-alias vim='nvim'
-alias vi='nvim'
-#
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/me/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/me/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/me/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/me/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export VIRTUAL_ENV_DIABLE_PROMPT=0
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/me/bin:/home/me/.local/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Make ZSH use the "V" command to edit current command in the editor
+# stolen from https://unix.stackexchange.com/questions/6620/how-to-edit-command-line-in-full-screen-editor-in-zsh
+export VISUAL=nvim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+yt() {
+  youtube-dl $1
+}
+
+yt-long() {
+  youtube-dl -o "%(id)s.%(ext)s" $1
+}
+
+db() {
+  gdb -tui $1
+}
+
+# For Emscripten
+# source "/home/me/randomGit/emsdk/emsdk_env.sh"
+
