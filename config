@@ -183,3 +183,9 @@ bar {
         status_command i3status
 }
 
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
+
+#keybinding to lock screen
+bindsym Control+Mod1+l exec "i3lock -c 000000"
