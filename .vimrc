@@ -42,3 +42,8 @@ let g:airline_theme='agnoster'
 " copy and paste with normal ctrl c & ctrl b
 vmap <C-c> "+y
 nmap <C-b> "+p
+
+" buffer navigation
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
