@@ -47,3 +47,7 @@ nmap <C-b> "+p
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+
+" for 2 spaces in yaml stolen from 
+" https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
