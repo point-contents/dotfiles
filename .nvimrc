@@ -29,19 +29,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'vimlab/split-term.vim'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
-Plug 'prettier/vim-prettier', {'do': 'npm install'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'albfan/ag.vim'
 Plug 'rstacruz/vim-closer'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
