@@ -110,14 +110,9 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="nvim"
 alias vim="nvim"
-alias darke="gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
-alias lighte="gsettings set org.gnome.desktop.interface gtk-theme Adwaita-light"
-alias sip="cp ~/cpp_template_directory/main.cpp ."
-alias dirt="cd ~/Documents/.vid"
 alias files="nautilus"
 alias kitty="random_kitty ; nohup kitty --start-as=\"fullscreen\" > /dev/null &"
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/me/bin:/home/me/.local/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -128,18 +123,8 @@ export VISUAL=nvim
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-yt() {
-  youtube-dl $1
-}
-
-yt-long() {
-  youtube-dl -o "%(id)s.%(ext)s" $1
-}
-
 db() {
   gdb -tui $1
 }
 
-# For Emscripten
-# source "/home/me/randomGit/emsdk/emsdk_env.sh"
 
