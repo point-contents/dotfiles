@@ -25,8 +25,7 @@ Plug 'morhetz/gruvbox'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
