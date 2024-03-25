@@ -23,16 +23,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'mbbill/undotree'
-Plug 'preservim/nerdtree'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
-map<C-n> :NERDTreeToggle<CR>
 autocmd vimenter * colorscheme gruvbox
-let g:airline_theme='owo'
 
 " copy and paste with normal ctrl c & ctrl b
 vmap <C-c> "+y
